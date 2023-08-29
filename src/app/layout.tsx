@@ -3,11 +3,12 @@ import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import { Toaster } from '@/components/ui/Toaster'
+import Providers from '@/components/Providers'
 
 
 
 export const metadata = {
-  title: 'Breadit',
+  title: 'LetIt',
   description: 'A Reddit clone built with Next.js and TypeScript.',
 }
 
@@ -19,26 +20,27 @@ export default function RootLayout({
   children,
   authModel,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode
   authModel: React.ReactNode
 }) {
   return (
     <html lang='en' className={cn('bg-white text-slate-900 antialiased light',
       inter.className)}>
       <body className='min-h-screen pt-12 bg-slate-50 antialiased'>
-        {/*@ts-expect-error server component*/}
-        <Navbar />
+        <Providers>
+          {/*@ts-expect-error server component*/}
+          <Navbar />
 
-        {authModel}
+          {authModel}
 
 
-        <div className='container max-w-7xl mx-auto h-full pt-12'>
-          {children}
+          <div className='container max-w-7xl mx-auto h-full pt-12'>
+            {children}
 
-        </div>
+          </div>
 
-        <Toaster />
-
+          <Toaster />
+        </Providers>
       </body>
     </html>
   )
