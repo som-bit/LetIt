@@ -72,7 +72,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
                     linkTool: {
                         class: LinkTool,
                         config: {
-                            endpoint: '/api/limk'
+                            endpoint: '/api/link'
                         },
                     },
                     image: {
@@ -91,16 +91,6 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
                             },
                         },
                     },
-
-
-
-
-
-
-
-                    
-
-
                     list: List,
                     code: Code,
                     inlineCode: InlineCode,
@@ -138,7 +128,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
                 <TextareaAutosize
                     placeholder='Title'
                     className='w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none' />
-                <div id='editor' className='min-h'/>
+                <div id='editor' className='min-h' />
             </div>
 
         </form>
