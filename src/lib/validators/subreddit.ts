@@ -1,9 +1,9 @@
 import exp from 'constants'
-import { TypeOf, z } from 'zod'
+import { z } from 'zod'
 
 
 export const SubredditValidator = z.object({
-    name:z.string().min(3).max(21),
+    name: z.string().min(3).max(21),
 })
 
 
