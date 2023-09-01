@@ -1,12 +1,31 @@
+import CustomFeed from "@/components/CustomFeed";
+import GeneralFeed from "@/components/Generalfeed";
 import { buttonVariants } from "@/components/ui/Button";
+import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link"
-export default function Home() {
+
+
+
+
+export default async function Home() {
+
+
+
+  const session = await getAuthSession()
+
   return <>
     <h1 className="folt-bold text-3x1 md:text-4x1">Your feed</h1>
+    {/* Its return type 'Promise<Element>' is not a valid JSX element.
+    Type 'Promise<Element>' is missing the following properties  so we doing @ ts-*/}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6">
 
-      { /*yourfeed*/}
+      {/* @ts-expect-error server component */}
+      {session ? <CustomFeed /> : <GeneralFeed />}
+
+
+
+
 
 
       {/*Sub reddit info*/}
@@ -25,9 +44,9 @@ export default function Home() {
             </p>
           </div>
           <Link className={buttonVariants({
-            className:'w-full mt-4 mb-6',
+            className: 'w-full mt-4 mb-6',
           })}
-          href='/r/create'>Create Community</Link>
+            href='/r/create'>Create Community</Link>
         </div>
       </div>
     </div>

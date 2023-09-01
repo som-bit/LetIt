@@ -26,6 +26,7 @@ const page = async ({ params }: PageProps) => {
                     comments: true,
                     subreddit: true,
                 },
+                //for no duplication
                 orderBy: {
                     createdAt: 'desc'
                 },

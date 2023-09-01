@@ -41,7 +41,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
             initialData: { pages: [initialPosts], pageParams: [1] },
         }
     )
-
+//cheching if we get to the last post of the visible to the screen or if the last post is intersecting
     useEffect(() => {
         if (entry?.isIntersecting) {
             fetchNextPage() // Load more posts when the last post comes into view
@@ -72,7 +72,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
                                 commentAmt={post.comments.length}
                                 subredditName={post.subreddit.name}
                                 votesAmt={votesAmt}
-                                // currentVote={currentVote}
+                                currentVote={currentVote}
                             />
                         </li>
                     )
@@ -84,7 +84,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
                             commentAmt={post.comments.length}
                             subredditName={post.subreddit.name}
                             votesAmt={votesAmt}
-                            // currentVote={currentVote}
+                            currentVote={currentVote}
                         />
                     )
                 }
