@@ -5,13 +5,7 @@ import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link"
 
-
-
-
 export default async function Home() {
-
-
-
   const session = await getAuthSession()
 
   return <>
@@ -22,12 +16,6 @@ export default async function Home() {
 
       {/* @ts-expect-error server component */}
       {session ? <CustomFeed /> : <GeneralFeed />}
-
-
-
-
-
-
       {/*Sub reddit info*/}
       <div className="overflow-hidden h-fit rounded-lg border border-gray-200 order-first md:order-last ">
 

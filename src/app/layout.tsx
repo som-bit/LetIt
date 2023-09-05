@@ -30,15 +30,10 @@ export default function RootLayout({
         <Providers>
           {/*@ts-expect-error server component*/}
           <Navbar />
-
           {authModel}
-
-
           <div className='container max-w-7xl mx-auto h-full pt-12'>
             {children}
-
           </div>
-
           <Toaster />
         </Providers>
       </body>
