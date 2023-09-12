@@ -18,13 +18,8 @@ const Navbar = async () => {
                 <Icons.logo className="h-10 w-10 sm:h-8 sm:w-8" />
                 <p className="hidden text-zinc-700 text-sm font-medium md:block"> LETIT </p>
             </Link>
-
-            {/*Search Bar*/}
-
-            <SearchBar/>
-
-
-
+            <SearchBar />
+            {/*if the user is authenticated than we show user account nav bar with the drop down menu*/}
             {session?.user? (
               <UserAccountNav user={session.user} />
             ) : (
