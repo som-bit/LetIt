@@ -7,16 +7,13 @@ import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
 import axios, { AxiosError } from 'axios'
 import { CreateSubredditPayload } from '@/lib/validators/subreddit'
-// import { useToast } from '@/hooks/use-toast'
 import { toast } from '@/hooks/use-toast'
 import { useCustomToasts } from '@/hooks/use-custom-toasts'
 
-const page = () => {
+const Page = () => {
     const [input, setInput] = useState<string>('')
     const router = useRouter()
-    // const { toast } = useToast()
     const { loginToast } = useCustomToasts()
-
     const { mutate: createCommunity, isLoading, } = useMutation({
         mutationFn: async () => {
             const payload: CreateSubredditPayload = {
@@ -83,8 +80,8 @@ const page = () => {
                         variant='subtle'
                         onClick={() => { router.back() }}>
                         Cancel</Button>
-                    
-                    
+
+
                     <Button
                         isLoading={isLoading}
                         disabled={input.length === 0}
@@ -97,5 +94,5 @@ const page = () => {
 
 }
 
-export default page
+export default Page
 
